@@ -15,20 +15,22 @@ struct ContentView: View {
         NavigationStack {
             List {
                 ForEach(itemsvm.itemsData) { item in
-//                    NavigationLink {
-//
-//                    }
-                    ListItemView(sourceResource : item.sourceResource, provider: item.provider, dplaId: item.id)
+                    NavigationLink {
+                        ItemDetail(item: item, sourceResource: item.sourceResource, provider: item.provider)
+                    } label: {
+                        ListItemView(sourceResource : item.sourceResource, provider: item.provider, dplaId: item.id)
+                    }
                 }
             }
-        }
-        .task {
-            await itemsvm.fetchData()
-        }
-        .listStyle(.grouped)
-        .navigationTitle("Cats of the Digital Public Library")
-        .alert(isPresented: $itemsvm.hasError, error:itemsvm.error) {
-            Text("")
+            .task {
+                await itemsvm.fetchData()
+            }
+            .listStyle(.grouped)
+            .navigationTitle("Cats of the Digital Public Library")
+            .navigationBarTitleDisplayMode(.inline)
+            .alert(isPresented: $itemsvm.hasError, error:itemsvm.error) {
+                Text("")
+            }
         }
     }
 }

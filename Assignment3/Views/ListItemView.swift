@@ -14,14 +14,17 @@ struct ListItemView: View {
     var dplaId : String
     
     var body: some View {
-        VStack {
-            if (sourceResource.title != nil) {
-                Text(sourceResource.title![0])
-                    .italic()
-            } else {
-                Text("[No Title]")
+        HStack {
+            ItemImageView(dplaId: dplaId, thumbnail: true)
+            VStack {
+                if (sourceResource.title != nil) {
+                    Text(sourceResource.title![0])
+                        .italic()
+                } else {
+                    Text("[No Title]")
+                }
+                Text(provider.name)
             }
-            Text(provider.name)
         }
     }
 }
