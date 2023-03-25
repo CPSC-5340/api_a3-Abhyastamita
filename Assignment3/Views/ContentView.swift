@@ -26,7 +26,7 @@ struct ContentView: View {
                 await itemsvm.fetchData()
             }
             .listStyle(.grouped)
-            .navigationTitle("Cats of the Digital Public Library")
+            .navigationTitle("Cats of the Digital Public Library of America")
             .navigationBarTitleDisplayMode(.inline)
             .alert(isPresented: $itemsvm.hasError, error:itemsvm.error) {
                 Text("")

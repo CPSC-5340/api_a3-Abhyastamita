@@ -12,7 +12,7 @@ class ItemsViewModel : ObservableObject {
     @Published private(set) var itemsData = [ItemModel]()
     @Published var hasError = false
     @Published var error : ItemsModelError?
-    private let url = "https://api.dp.la/v2/items?q=cats&page_size=25&api_key=5b1ca38478bbc936669497f256b83565"
+    private let url = "https://api.dp.la/v2/items?q=cats+OR+kittens&&sourceResource.type=image&page_size=50&api_key=5b1ca38478bbc936669497f256b83565"
     
     @MainActor
     func fetchData() async {

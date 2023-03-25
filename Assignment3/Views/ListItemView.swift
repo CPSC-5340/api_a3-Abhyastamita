@@ -25,6 +25,7 @@ struct ListItemView: View {
                 }
                 Text(provider.name)
             }
+            .frame(alignment: .center)
         }
     }
 }
